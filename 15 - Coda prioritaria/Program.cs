@@ -43,10 +43,34 @@ namespace _15___Coda_prioritaria
                     }
                 }
             }
-            public T LetturaElemento()
+            public T LetturaPrimoElemento()
             {
                 T primoElemento = (T)arrayList[0];
                 return primoElemento;
+            }
+            public void EstrazionePrimoElemento()
+            {
+                if (arrayList.Count == 0)
+                    return;
+                else
+                    arrayList.RemoveAt(0);
+                return;
+            }
+            public void EstrazioneUltimoElemento()
+            {
+                int index = 0;
+                if (arrayList.Count == 0)
+                    return;
+                else
+                {
+                    foreach (T item in arrayList)
+                    {
+                        index++;
+                    }
+                    arrayList.RemoveAt(index);
+                    return;
+                }
+                
             }
             public bool isEmpty()
             {
@@ -70,7 +94,7 @@ namespace _15___Coda_prioritaria
             codaPrioritaria.Aggiunta(elemento1);
             codaPrioritaria.Aggiunta(elemento2);
             codaPrioritaria.Aggiunta(elemento3);
-            Console.WriteLine(codaPrioritaria.LetturaElemento());
+            Console.WriteLine(codaPrioritaria.LetturaPrimoElemento());
         }
         
     }
