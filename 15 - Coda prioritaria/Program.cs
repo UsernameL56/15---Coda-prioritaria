@@ -27,8 +27,10 @@ namespace _15___Coda_prioritaria
                     arrayList.Insert(0, obj);
                 else
                 {
+
+                    ArrayList copia = (ArrayList)arrayList.Clone();
                     int index = 0;
-                    foreach (T item in arrayList)
+                    foreach (T item in copia)
                     {
                         if (((IComparable)obj).CompareTo(item) <= 0)
                         {
