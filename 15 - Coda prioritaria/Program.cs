@@ -84,18 +84,68 @@ namespace _15___Coda_prioritaria
         {
             //Console.WriteLine("Inserire il tipo degli elementi che si vogliono inserire: ");
             //string tipo = Console.ReadLine();
+            
+           
+            int scelta;
             CodaPrioritaria<int> codaPrioritaria = new CodaPrioritaria<int>();
-            Console.WriteLine("Inserire il tipo degli elementi che si vogliono inserire: ");
-            int elemento1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Inserire il tipo degli elementi che si vogliono inserire: ");
-            int elemento2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Inserire il tipo degli elementi che si vogliono inserire: ");
-            int elemento3 = int.Parse(Console.ReadLine());
-            codaPrioritaria.Aggiunta(elemento1);
-            codaPrioritaria.Aggiunta(elemento2);
-            codaPrioritaria.Aggiunta(elemento3);
-            Console.WriteLine(codaPrioritaria.LetturaPrimoElemento());
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("Menù");
+                Console.WriteLine("1) Inserimento di un elemento");
+                Console.WriteLine("2) Ricerca di un elemento");
+                Console.WriteLine("3) Lettura del primo elemento");
+                Console.WriteLine("4) Estrazione del primo elemento");
+                Console.WriteLine("5) Estrazione dell'ultimo elemento");
+                Console.WriteLine("\n0) Fine\n");
+                Console.Write("Scelta: ");
+
+                if (!int.TryParse(Console.ReadLine(), out scelta))
+                {
+                    Console.Write("scelta non valida");
+                    continue;
+                }
+                
+                switch (scelta)
+                {
+                    case 0:
+                        Console.WriteLine("Programma terminato.");
+                        break;
+                    case 1:
+                        Console.WriteLine("Inserire l'elemento che si vuole aggiungere alla coda: ");
+                        int elemento = int.Parse(Console.ReadLine());
+
+                        codaPrioritaria.Aggiunta(elemento);
+
+                        break;
+                    case 2:
+                       
+                        break;
+                    case 3:
+                        Console.WriteLine(codaPrioritaria.LetturaPrimoElemento());
+                        break;
+                    case 4:
+                        if (!codaPrioritaria.isEmpty())
+                        {
+                            codaPrioritaria.EstrazionePrimoElemento();
+                            Console.WriteLine("Primo elemento estratto correttamente");
+                        }
+                        else
+                            Console.WriteLine("La coda è vuota");
+                        
+                        break;
+                    case 5:
+                        if (!codaPrioritaria.isEmpty())
+                        {
+                            codaPrioritaria.EstrazioneUltimoElemento();
+                            Console.WriteLine("Ultimo elemento estratto correttamente");
+                        }
+                        else
+                            Console.WriteLine("La coda è vuota");
+                        break;
+                }
+            } while (scelta != 0);
         }
-        
     }
 }
+
